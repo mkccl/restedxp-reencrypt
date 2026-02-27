@@ -180,6 +180,27 @@ body {
   color: #5a5040 !important;
 }
 
+/* Free key CTA button — green glow */
+.wow-btn-free {
+  background: linear-gradient(180deg, #34d058 0%, #28a745 50%, #1e7e34 100%);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: 1px solid #1e7e34;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(52, 208, 88, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.wow-btn-free:hover {
+  background: linear-gradient(180deg, #3ee066 0%, #34d058 50%, #28a745 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(52, 208, 88, 0.25),
+    0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
 /* Title font */
 .font-wow {
   font-family: 'Cinzel', serif;

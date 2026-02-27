@@ -1,4 +1,5 @@
 import { ReEncryptCard } from "@/components/re-encrypt-card";
+import { FreeKeyModal } from "@/components/free-key-modal";
 
 function ShieldIcon({ className }: { className?: string }) {
   return (
@@ -77,8 +78,34 @@ export default function Home() {
 
       {/* Content */}
       <main className="relative z-10 flex flex-col items-center px-4 py-12 md:py-20">
-        {/* Tool */}
-        <ReEncryptCard />
+        {/* Page header */}
+        <header className="mb-8 text-center">
+          <h1 className="font-[var(--font-cinzel)] text-3xl font-bold tracking-wide text-gold-bright md:text-4xl">
+            RestedXP Re-Encrypt
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Free lifetime key generator for the{" "}
+            <span className="text-foreground font-medium">
+              WoW Midnight Leveling Guide
+            </span>
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground/50">
+            Because Blizzard says addons must be free — and we agree.
+          </p>
+        </header>
+
+        {/* Free key CTA */}
+        <div className="mb-6 w-full max-w-lg">
+          <FreeKeyModal />
+        </div>
+
+        {/* Re-encrypt tool (advanced) */}
+        <details className="w-full max-w-lg group">
+          <summary className="mb-3 cursor-pointer text-center text-xs text-muted-foreground/50 transition-colors hover:text-muted-foreground/80">
+            Already have your own export file? Re-encrypt it manually
+          </summary>
+          <ReEncryptCard />
+        </details>
 
         {/* Why section */}
         <section className="mt-12 w-full max-w-2xl space-y-6">
