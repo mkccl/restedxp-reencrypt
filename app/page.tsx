@@ -80,18 +80,34 @@ export default function Home() {
       <main className="relative z-10 flex flex-col items-center px-4 py-12 md:py-20">
         {/* Page header */}
         <header className="mb-8 text-center">
-          <h1 className="font-[var(--font-cinzel)] text-3xl font-bold tracking-wide text-gold-bright md:text-4xl">
-            RestedXP Re-Encrypt
-          </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Free lifetime key generator for the{" "}
-            <span className="text-foreground font-medium">
-              WoW Midnight Leveling Guide
-            </span>
-          </p>
-          <p className="mt-1 text-xs text-muted-foreground/50">
-            Because Blizzard says addons must be free — and we agree.
-          </p>
+          <div className="flex items-center justify-center gap-4 md:gap-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/horde-logo.png"
+              alt="Horde"
+              className="h-16 w-auto opacity-80 drop-shadow-[0_0_8px_rgba(200,30,30,0.3)] md:h-20"
+            />
+            <div>
+              <h1 className="font-[var(--font-cinzel)] text-2xl font-bold tracking-wide text-gold-bright md:text-4xl">
+                RestedXP Re-Encrypt
+              </h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Free lifetime key for the{" "}
+                <span className="font-medium text-foreground">
+                  WoW Midnight Leveling Guide
+                </span>
+              </p>
+              <p className="mt-0.5 text-xs text-muted-foreground/50">
+                For Horde &amp; Alliance — because addons must be free.
+              </p>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/alliance-logo.png"
+              alt="Alliance"
+              className="h-16 w-auto opacity-80 drop-shadow-[0_0_8px_rgba(30,80,200,0.3)] md:h-20"
+            />
+          </div>
         </header>
 
         {/* Free key CTA */}
