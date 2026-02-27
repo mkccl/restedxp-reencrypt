@@ -1,26 +1,187 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: #d4a017;
+  --color-gold-bright: #ffb100;
+  --color-gold-dim: #8b6914;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Warcraft dark theme — always on */
+:root {
+  --radius: 0.5rem;
+  --background: #090d15;
+  --foreground: #e8dcc8;
+  --card: #111827;
+  --card-foreground: #e8dcc8;
+  --popover: #111827;
+  --popover-foreground: #e8dcc8;
+  --primary: #d4a017;
+  --primary-foreground: #0a0e17;
+  --secondary: #1e2433;
+  --secondary-foreground: #e8dcc8;
+  --muted: #1a2030;
+  --muted-foreground: #8b7e6a;
+  --accent: #1e2a3a;
+  --accent-foreground: #e8dcc8;
+  --destructive: #c41e3a;
+  --border: #2a2215;
+  --input: #1a2030;
+  --ring: #d4a017;
+  --chart-1: #d4a017;
+  --chart-2: #4ade80;
+  --chart-3: #60a5fa;
+  --chart-4: #c084fc;
+  --chart-5: #fb923c;
+  --sidebar: #111827;
+  --sidebar-foreground: #e8dcc8;
+  --sidebar-primary: #d4a017;
+  --sidebar-primary-foreground: #0a0e17;
+  --sidebar-accent: #1e2433;
+  --sidebar-accent-foreground: #e8dcc8;
+  --sidebar-border: #2a2215;
+  --sidebar-ring: #d4a017;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
+/* WoW-inspired background */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(212, 160, 23, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(30, 20, 60, 0.4) 0%, transparent 60%),
+    #090d15;
+  min-height: 100vh;
+}
+
+/* Gold border glow for the main card */
+.wow-card {
+  border: 1px solid #3d301880;
+  box-shadow:
+    0 0 0 1px rgba(212, 160, 23, 0.1),
+    0 0 30px -5px rgba(212, 160, 23, 0.08),
+    0 4px 40px -8px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(180deg, #111827 0%, #0f1420 100%);
+}
+
+/* Gold gradient button */
+.wow-btn-gold {
+  background: linear-gradient(180deg, #e8b828 0%, #c49212 50%, #a07810 100%);
+  color: #1a0f00;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid #8b6914;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 230, 120, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.15s ease;
+}
+
+.wow-btn-gold:hover:not(:disabled) {
+  background: linear-gradient(180deg, #f0c838 0%, #d4a017 50%, #b08818 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 230, 120, 0.5),
+    0 0 16px rgba(212, 160, 23, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.wow-btn-gold:disabled {
+  opacity: 0.4;
+  filter: saturate(0.3);
+}
+
+/* Drop zone styling */
+.wow-dropzone {
+  border: 2px dashed #3d301850;
+  background: #0c101a;
+  transition: all 0.2s ease;
+}
+
+.wow-dropzone:hover {
+  border-color: #d4a01740;
+  background: #0e1220;
+}
+
+.wow-dropzone-active {
+  border-color: #d4a017 !important;
+  background: rgba(212, 160, 23, 0.05) !important;
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.1);
+}
+
+.wow-dropzone-done {
+  border-color: #4ade8060;
+  background: rgba(74, 222, 128, 0.03);
+}
+
+/* Warcraft-style inputs */
+.wow-input {
+  background: #0c101a !important;
+  border-color: #2a221580 !important;
+  color: #e8dcc8 !important;
+  transition: all 0.15s ease;
+}
+
+.wow-input:focus {
+  border-color: #d4a01780 !important;
+  box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.2), 0 0 12px rgba(212, 160, 23, 0.08) !important;
+}
+
+.wow-input::placeholder {
+  color: #5a5040 !important;
+}
+
+/* Title font */
+.font-wow {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.03em;
 }
