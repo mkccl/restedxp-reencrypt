@@ -1,5 +1,7 @@
 import { ReEncryptCard } from "@/components/re-encrypt-card";
 import { FreeKeyModal } from "@/components/free-key-modal";
+import { GUIDES } from "@/lib/guides";
+
 
 function ShieldIcon({ className }: { className?: string }) {
   return (
@@ -92,9 +94,9 @@ export default function Home() {
                 RestedXP Re-Encrypt
               </h1>
               <p className="mt-1 text-sm text-muted-foreground">
-                Free lifetime key for the{" "}
+                Free lifetime keys for{" "}
                 <span className="font-medium text-foreground">
-                  WoW Midnight Leveling Guide
+                  WoW Leveling Guides
                 </span>
               </p>
               <p className="mt-0.5 text-xs text-muted-foreground/50">
@@ -110,7 +112,37 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Free key CTA */}
+        {/* Available guides */}
+        <div className="mb-6 w-full max-w-3xl grid gap-3 md:grid-cols-3">
+          {GUIDES.map((guide) => (
+            <div key={guide.id} className="wow-card relative overflow-hidden rounded-lg">
+              {/* Expansion key art */}
+              <div className="relative h-32">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={guide.image}
+                  alt={guide.expansion}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/60 to-transparent" />
+              </div>
+              {/* Info */}
+              <div className="relative -mt-6 px-4 pb-4">
+                <h3 className="font-[var(--font-cinzel)] text-sm font-semibold tracking-wide text-gold-bright">
+                  {guide.title}
+                </h3>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {guide.expansion} &middot; Levels {guide.levels}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/70">
+                  {guide.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Single CTA */}
         <div className="mb-6 w-full max-w-lg">
           <FreeKeyModal />
         </div>
