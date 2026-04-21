@@ -2,16 +2,16 @@ import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { decryptGuideFile, encryptForBattletag } from "../lib/rxp-crypto";
 
-const SOURCE_TAG = "paddyy#2149";
+const SOURCE_TAG = "";
 const TARGET_TAG = "player#1234";
 
 const guides = [
   {
-    input: "The Burning Crusade Speedrun Guide - Both Factions!paddyy#2149.txt",
+    input: "The Burning Crusade Speedrun Guide - Both Factions!",
     output: "guide_tbc_player_1234.txt",
   },
   {
-    input: "WotLK Both Faction Guide 1-80!paddyy#2149.txt",
+    input: "WotLK Both Faction Guide 1-80!",
     output: "guide_wotlk_player_1234.txt",
   },
 ];
