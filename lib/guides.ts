@@ -8,8 +8,17 @@ export interface GuideConfig {
   guideUrl: string;
   sourceTag: string;
 }
-
 export const GUIDES: GuideConfig[] = [
+  {
+    id: "forever",
+    title: "Forever Leveling Guide",
+    expansion: "WoW Forever",
+    description: "Up to date leveling guide for both factions for WoW Forever",
+    levels: "1-60",
+    image: "/forever-guide-art.jpg",
+    guideUrl: "/guide_forever_player_1234.txt",
+    sourceTag: "player#1234",
+  },
   {
     id: "midnight",
     title: "Midnight Leveling Guide",
